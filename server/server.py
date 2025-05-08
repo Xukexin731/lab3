@@ -20,3 +20,16 @@ def handle_client(client_socket, client_address):
             command = request[3]
             key = request[4:message_size - 1] if command != 'P' else request[4:message_size - len(request.split(' ')[-1]) - 2]
             value = request.split(' ')[-1] if command == 'P' else ''
+
+            response = ''
+            if command == 'R':
+                operation_count += 1
+                read_count += 1
+                
+            elif command == 'G':
+                operation_count += 1
+                get_count += 1
+            
+            elif command == 'P':
+                operation_count += 1
+                put_count += 1
