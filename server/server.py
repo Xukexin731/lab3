@@ -13,3 +13,6 @@ def handle_client(client_socket, client_address):
     client_count += 1
     while True:
         try:
+            request = client_socket.recv(1024).decode('utf-8')
+            if not request:
+                break
