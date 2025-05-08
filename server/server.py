@@ -1,2 +1,4 @@
 import socket
-import matplotlib
+import threading
+import time
+tuple_space = {}
