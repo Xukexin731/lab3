@@ -55,3 +55,19 @@ def handle_client(client_socket, client_address):
             print(f"Error handling client {client_address}: {e}")
             break
     client_socket.close()
+def print_statistics():
+    global tuple_space, client_count, operation_count, read_count, get_count, put_count, error_count
+    while True:
+        time.sleep(10)
+        tuple_count = len(tuple_space)
+        print(f"Tuple Space Statistics:")
+        print(f"Number of tuples: {tuple_count}")
+        print(f"Average tuple size: {avg_tuple_size}")
+        print(f"Average key size: {avg_key_size}")
+        print(f"Average value size: {avg_value_size}")
+        print(f"Total number of clients: {client_count}")
+        print(f"Total number of operations: {operation_count}")
+        print(f"Total READs: {read_count}")
+        print(f"Total GETs: {get_count}")
+        print(f"Total PUTs: {put_count}")
+        print(f"Total errors: {error_count}")
