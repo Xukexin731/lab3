@@ -50,3 +50,8 @@ def handle_client(client_socket, client_address):
                 else:
                     tuple_space[key] = value
                     response = f"{len(f'OK ({key}, {value}) added'):03d} OK ({key}, {value}) added"
+                client_socket.send(response.encode('utf-8'))
+        except Exception as e:
+            print(f"Error handling client {client_address}: {e}")
+            break
+    client_socket.close()
