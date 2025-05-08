@@ -60,6 +60,17 @@ def print_statistics():
     while True:
         time.sleep(10)
         tuple_count = len(tuple_space)
+        if tuple_count > 0:
+            total_tuple_size = sum(len(key) + len(value) for key, value in tuple_space.items())
+            total_key_size = sum(len(key) for key in tuple_space.keys())
+            total_value_size = sum(len(value) for value in tuple_space.values())
+            avg_tuple_size = total_tuple_size / tuple_count
+            avg_key_size = total_key_size / tuple_count
+            avg_value_size = total_value_size / tuple_count
+        else:
+            avg_tuple_size = 0
+            avg_key_size = 0
+            avg_value_size = 0
         print(f"Tuple Space Statistics:")
         print(f"Number of tuples: {tuple_count}")
         print(f"Average tuple size: {avg_tuple_size}")
